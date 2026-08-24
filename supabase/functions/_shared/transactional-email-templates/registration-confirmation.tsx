@@ -65,7 +65,7 @@ export const template = {
     eventName: 'Founders Brunch · Spring 2026',
     eventDateLine: 'Sat, Apr 18, 2026 · 10:00 AM EST',
     locationLine: 'The Hoxton, Williamsburg',
-    organizerName: 'eventspark',
+    organizerName: 'event view',
     calendarUrl: 'https://example.com/calendar.ics',
     eventUrl: 'https://example.com/register/event',
   },

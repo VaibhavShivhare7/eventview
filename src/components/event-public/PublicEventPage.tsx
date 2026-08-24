@@ -151,7 +151,7 @@ export function PublicEventPage({
             </motion.div>
 
             <p className="text-center text-xs text-muted-foreground mt-8">
-              Powered by <span className="font-semibold text-foreground">eventspark</span>
+              Powered by <span className="font-semibold text-foreground">event view</span>
             </p>
           </div>
         </section>

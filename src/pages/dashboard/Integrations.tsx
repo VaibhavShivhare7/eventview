@@ -13,7 +13,7 @@ type Connector = {
   Icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
   brand: string;
   category: string;
-  /** Tailored Lovable prompt that walks the user through wiring this integration into eventspark. */
+  /** Tailored Lovable prompt that walks the user through wiring this integration into event view. */
   prompt: string;
 };
 
@@ -24,7 +24,7 @@ const connectors: Connector[] = [
     name: "Google Calendar",
     description: "Push live events to your calendar and let attendees add events with one click.",
     Icon: SiGooglecalendar, brand: "#4285F4", category: "Calendar",
-    prompt: "Connect Google Calendar to eventspark. When I publish an event, automatically create a matching Google Calendar event on my connected account and store the calendar event id back on the event row. On the public registration page, add an 'Add to Google Calendar' button that prefills the event details for the attendee. Keep it simple: only sync events I own, and update the calendar event if I edit the time, title, or location.",
+    prompt: "Connect Google Calendar to event view. When I publish an event, automatically create a matching Google Calendar event on my connected account and store the calendar event id back on the event row. On the public registration page, add an 'Add to Google Calendar' button that prefills the event details for the attendee. Keep it simple: only sync events I own, and update the calendar event if I edit the time, title, or location.",
   },
 
   // ── Email ────────────────────────────────────────────────────────────
@@ -33,14 +33,14 @@ const connectors: Connector[] = [
     name: "Gmail",
     description: "Send confirmations and reminders from your own Gmail address instead of the default sender.",
     Icon: SiGmail, brand: "#EA4335", category: "Email",
-    prompt: "Connect Gmail to eventspark so my registration confirmations, waitlist notices, and event reminders are sent from my own Gmail address with proper threading. Add a per-event toggle 'Send from my Gmail' in the Settings tab. Fall back to the default eventspark sender if Gmail isn't connected or rate-limited.",
+    prompt: "Connect Gmail to event view so my registration confirmations, waitlist notices, and event reminders are sent from my own Gmail address with proper threading. Add a per-event toggle 'Send from my Gmail' in the Settings tab. Fall back to the default event view sender if Gmail isn't connected or rate-limited.",
   },
   {
     id: "microsoft_outlook",
     name: "Microsoft Outlook",
     description: "Send transactional emails from your Outlook / Microsoft 365 mailbox.",
     Icon: Mail, brand: "#0072C6", category: "Email",
-    prompt: "Connect Microsoft Outlook to eventspark so transactional emails (confirmation, reminder, waitlist) can be sent from my own Outlook mailbox. Add a per-event toggle 'Send from my Outlook' in Settings, with a clear fallback to the default sender on failure.",
+    prompt: "Connect Microsoft Outlook to event view so transactional emails (confirmation, reminder, waitlist) can be sent from my own Outlook mailbox. Add a per-event toggle 'Send from my Outlook' in Settings, with a clear fallback to the default sender on failure.",
   },
 
   // ── Messaging / Comms ────────────────────────────────────────────────
@@ -49,28 +49,28 @@ const connectors: Connector[] = [
     name: "Slack",
     description: "Drop a message in a channel every time someone registers, hits the waitlist, or checks in.",
     Icon: SiSlack, brand: "#4A154B", category: "Messaging",
-    prompt: "Connect Slack to eventspark. In an event's Settings tab, let me pick a Slack channel and choose which events trigger notifications: new registration, waitlist join, check-in, and capacity reached. Include the attendee name, ticket type, and event name in each message, with a link back to the event dashboard.",
+    prompt: "Connect Slack to event view. In an event's Settings tab, let me pick a Slack channel and choose which events trigger notifications: new registration, waitlist join, check-in, and capacity reached. Include the attendee name, ticket type, and event name in each message, with a link back to the event dashboard.",
   },
   {
     id: "microsoft_teams",
     name: "Microsoft Teams",
     description: "Notify a Teams channel when registrations come in or capacity is reached.",
     Icon: MessagesSquare, brand: "#4B53BC", category: "Messaging",
-    prompt: "Connect Microsoft Teams to eventspark. Per event, let me pick a Teams channel and toggle notifications for new registrations, waitlist joins, check-ins, and capacity-reached. Each message should include attendee name, ticket type, event name, and a link back to the event dashboard.",
+    prompt: "Connect Microsoft Teams to event view. Per event, let me pick a Teams channel and toggle notifications for new registrations, waitlist joins, check-ins, and capacity-reached. Each message should include attendee name, ticket type, event name, and a link back to the event dashboard.",
   },
   {
     id: "telegram",
     name: "Telegram",
     description: "Send live registration alerts to a Telegram chat or channel via a bot.",
     Icon: SiTelegram, brand: "#26A5E4", category: "Messaging",
-    prompt: "Connect Telegram to eventspark. Let me paste a chat id (or pick from chats my bot is in) and pick which events send alerts. Trigger messages on new registration, waitlist, and check-in, formatted with attendee name, ticket type, and a deep link to the dashboard.",
+    prompt: "Connect Telegram to event view. Let me paste a chat id (or pick from chats my bot is in) and pick which events send alerts. Trigger messages on new registration, waitlist, and check-in, formatted with attendee name, ticket type, and a deep link to the dashboard.",
   },
   {
     id: "twilio",
     name: "Twilio SMS",
     description: "Send SMS reminders before the event and check-in confirmations on arrival.",
     Icon: SiTwilio, brand: "#F22F46", category: "Messaging",
-    prompt: "Connect Twilio to eventspark to send SMS to attendees who provided a phone number. Add per-event toggles for: 24-hour SMS reminder, 1-hour SMS reminder, and SMS check-in confirmation. Respect timezone and only message attendees with status='registered' or 'checked_in'. Show estimated SMS volume before enabling.",
+    prompt: "Connect Twilio to event view to send SMS to attendees who provided a phone number. Add per-event toggles for: 24-hour SMS reminder, 1-hour SMS reminder, and SMS check-in confirmation. Respect timezone and only message attendees with status='registered' or 'checked_in'. Show estimated SMS volume before enabling.",
   },
 
   // ── CRM ──────────────────────────────────────────────────────────────
@@ -79,7 +79,7 @@ const connectors: Connector[] = [
     name: "HubSpot",
     description: "Sync attendees into HubSpot as contacts and tag them by event.",
     Icon: SiHubspot, brand: "#FF7A59", category: "CRM",
-    prompt: "Connect HubSpot to eventspark. When someone registers, upsert them as a HubSpot contact (email, name, phone, company, job title) and add a tag/list for the event. Also push a 'Registered for {event name}' timeline event. Per-event toggle to enable, plus the ability to map custom registration form fields to HubSpot contact properties.",
+    prompt: "Connect HubSpot to event view. When someone registers, upsert them as a HubSpot contact (email, name, phone, company, job title) and add a tag/list for the event. Also push a 'Registered for {event name}' timeline event. Per-event toggle to enable, plus the ability to map custom registration form fields to HubSpot contact properties.",
   },
 
   // ── Productivity / Storage ───────────────────────────────────────────
@@ -88,21 +88,21 @@ const connectors: Connector[] = [
     name: "Google Sheets",
     description: "Mirror your attendee list to a live Google Sheet for sharing and reporting.",
     Icon: SiGooglesheets, brand: "#0F9D58", category: "Productivity",
-    prompt: "Connect Google Sheets to eventspark. For each event, let me pick or create a Sheet. Mirror the attendee list (name, email, phone, ticket type, status, registered_at, checked_in_at, custom form fields) and keep it in sync on every change. Append-and-update by registration id so manual edits in the sheet aren't clobbered.",
+    prompt: "Connect Google Sheets to event view. For each event, let me pick or create a Sheet. Mirror the attendee list (name, email, phone, ticket type, status, registered_at, checked_in_at, custom form fields) and keep it in sync on every change. Append-and-update by registration id so manual edits in the sheet aren't clobbered.",
   },
   {
     id: "google_drive",
     name: "Google Drive",
     description: "Auto-save attendee CSV exports and event assets to a Drive folder.",
     Icon: SiGoogledrive, brand: "#1FA463", category: "Productivity",
-    prompt: "Connect Google Drive to eventspark. Let me pick a target folder per event. Automatically upload attendee CSV exports (daily and on event close) and any uploaded flyers/assets there. Keep the latest export named consistently and archive previous versions in a /history subfolder.",
+    prompt: "Connect Google Drive to event view. Let me pick a target folder per event. Automatically upload attendee CSV exports (daily and on event close) and any uploaded flyers/assets there. Keep the latest export named consistently and archive previous versions in a /history subfolder.",
   },
   {
     id: "microsoft_onedrive",
     name: "Microsoft OneDrive",
     description: "Auto-save attendee CSV exports and event assets to a OneDrive folder.",
     Icon: HardDrive, brand: "#0364B8", category: "Productivity",
-    prompt: "Connect Microsoft OneDrive to eventspark. Let me pick a target folder per event. Automatically upload attendee CSV exports (daily and on event close) and any uploaded flyers/assets there. Keep the latest export named consistently and archive previous versions in a /history subfolder.",
+    prompt: "Connect Microsoft OneDrive to event view. Let me pick a target folder per event. Automatically upload attendee CSV exports (daily and on event close) and any uploaded flyers/assets there. Keep the latest export named consistently and archive previous versions in a /history subfolder.",
   },
 ];
 

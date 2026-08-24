@@ -16,8 +16,8 @@ export function Logo({ size = "md", className = "" }: LogoProps) {
   return (
     <span className={`inline-flex items-center gap-0.5 ${className}`}>
       <img src={logoGlyph} alt="" className={`${s.glyph} object-contain`} />
-      <span className={`font-display font-bold text-primary tracking-tight ${s.text}`}>
-        eventspark
+      <span className={`font-display font-extrabold text-black tracking-tight ${s.text}`}>
+        event view
       </span>
     </span>
   );

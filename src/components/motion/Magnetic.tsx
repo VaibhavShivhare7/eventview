@@ -3,7 +3,7 @@ import { useRef, type ReactNode, type MouseEvent } from "react";
 
 /**
  * Subtle magnetic hover for primary CTAs and icon buttons.
- * Keep `strength` low (8-16) — eventspark prefers measured motion.
+ * Keep `strength` low (8-16) — event view prefers measured motion.
  */
 export function Magnetic({
   children,

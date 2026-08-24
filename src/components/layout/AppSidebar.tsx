@@ -58,12 +58,12 @@ export function AppSidebar() {
       <SidebarHeader className={collapsed ? "p-2 flex items-center justify-center" : "p-4"}>
         <NavLink to="/dashboard/events" className="flex items-center gap-2" onClick={handleNavClick}>
           {!collapsed && (
-            <span className="font-display text-lg font-bold text-sidebar-foreground">
-              eventspark
+            <span className="font-display text-lg font-extrabold text-black">
+              event view
             </span>
           )}
           {collapsed && (
-            <span className="font-display text-sm font-bold text-sidebar-foreground">ES</span>
+            <span className="font-display text-sm font-extrabold text-black">EV</span>
           )}
         </NavLink>
       </SidebarHeader>

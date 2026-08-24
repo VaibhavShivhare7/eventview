@@ -33,7 +33,7 @@ export const template = {
   component: WaitlistConfirmation,
   subject: (d: Record<string, any>) => `Waitlisted for ${d?.eventName || 'the event'}`,
   displayName: 'Waitlist confirmation',
-  previewData: { attendeeName: 'Jamie', eventName: 'Founders Brunch', organizerName: 'eventspark' },
+  previewData: { attendeeName: 'Jamie', eventName: 'Founders Brunch', organizerName: 'event view' },
 } satisfies TemplateEntry
 
 const main = { backgroundColor: '#ffffff', fontFamily: 'Inter, Arial, sans-serif' }

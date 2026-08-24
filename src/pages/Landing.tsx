@@ -856,7 +856,7 @@ const Landing = () => {
       <footer className="py-12 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <Logo size="md" />
-          <p className="text-sm text-muted-foreground">© 2026 eventspark. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2026 event view. All rights reserved.</p>
         </div>
       </footer>
 
