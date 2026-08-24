@@ -1,4 +1,6 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
+import { createHash, timingSafeEqual } from 'node:crypto'
+
 
 // Cron-driven dispatcher that sends reminder emails (24h and 1h before events).
 // Idempotent via deterministic idempotencyKey per (registration, window).
