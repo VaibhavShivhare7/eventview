@@ -28,26 +28,34 @@ function nameFromData(data: Record<string, any> | null) {
 Deno.serve(async (req) => {
   // Restrict invocation to the service role (cron / trusted backend only).
   const authHeader = req.headers.get('Authorization') || ''
-  const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : ''
+  const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7).trim() : ''
   const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
-  if (!token || token !== serviceKey) {
-    // Also accept JWTs whose role claim is service_role (defense in depth).
-    try {
-      const payload = token ? JSON.parse(atob(token.split('.')[1])) : null
-      if (!payload || payload.role !== 'service_role') {
-        return new Response(JSON.stringify({ error: 'Forbidden' }), {
-          status: 403, headers: { 'Content-Type': 'application/json' },
-        })
-      }
-    } catch {
-      return new Response(JSON.stringify({ error: 'Forbidden' }), {
-        status: 403, headers: { 'Content-Type': 'application/json' },
-      })
-    }
-  }
-
   const supabaseUrl = Deno.env.get('SUPABASE_URL')!
   const supabase = createClient(supabaseUrl, serviceKey)
+
+  const forbidden = () => new Response(JSON.stringify({ error: 'Forbidden' }), {
+    status: 403, headers: { 'Content-Type': 'application/json' },
+  })
+
+  if (!token) return forbidden()
+
+  let authorized = false
+  if (token.length === serviceKey.length) {
+    authorized = timingSafeEqual(
+      createHash('sha256').update(token, 'utf8').digest(),
+      createHash('sha256').update(serviceKey, 'utf8').digest(),
+    )
+  }
+
+  if (!authorized) {
+    // Cryptographically verify the JWT instead of trusting its decoded payload.
+    const { data: claimsData, error: claimsError } = await supabase.auth.getClaims(token)
+    const role = (claimsData?.claims as Record<string, unknown> | undefined)?.role
+    authorized = !claimsError && role === 'service_role'
+  }
+
+  if (!authorized) return forbidden()
+
 
 
   const now = Date.now()
