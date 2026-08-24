@@ -34,6 +34,7 @@ import SettingsPage from "./pages/dashboard/SettingsPage";
 import LandingEditor from "./pages/dashboard/LandingEditor";
 import NotFound from "./pages/NotFound";
 import AcceptCohostInvitation from "./pages/AcceptCohostInvitation";
+import OAuthConsent from "./pages/OAuthConsent";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +65,7 @@ const App = () => (
               <Route path="/register/:slug/:variant" element={<Register />} />
               <Route path="/ticket/:registrationId" element={<Ticket />} />
               <Route path="/unsubscribe" element={<Unsubscribe />} />
+              <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
               
               <Route path="/cohost/accept" element={<AcceptCohostInvitation />} />
 

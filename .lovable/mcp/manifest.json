@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "sdk_version": "0.28.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://yrjeoptsmcemtcreshzy.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "remix-of-event-registration-page-template",
+      "version": "0.1.0",
+      "title": "Remix of Event Registration Page Template"
+    },
+    "tools": [
+      {
+        "name": "list_events",
+        "title": "List events",
+        "description": "List the events the signed-in organizer can access, with date, status, location and registration link slug.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "draft",
+                "published",
+                "cancelled",
+                "completed"
+              ],
+              "description": "Only return events with this status."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20,
+              "description": "Maximum events to return."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_event",
+        "title": "Get event details",
+        "description": "Get one event the signed-in organizer can access, by event id or registration page slug, including a registration count.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "event_id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Event id."
+            },
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Registration page slug, used when no event id is given."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_registrations",
+        "title": "List event registrations",
+        "description": "List registrations (attendees) for an event the signed-in organizer can access, including status, VIP flag and check-in time.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "event_id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Event id to list registrations for."
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "confirmed",
+                "pending",
+                "waitlisted",
+                "cancelled"
+              ],
+              "description": "Only return registrations with this status."
+            },
+            "checked_in": {
+              "type": "boolean",
+              "description": "Filter by whether the attendee has checked in."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "default": 50,
+              "description": "Maximum registrations to return."
+            }
+          },
+          "required": [
+            "event_id"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "check_in_attendee",
+        "title": "Check in attendee",
+        "description": "Check in an attendee at an event by registration id. Marks the registration as checked in.",
+        "annotations": {
+          "readOnlyHint": false,
+          "idempotentHint": true,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "registration_id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Registration id of the attendee to check in."
+            }
+          },
+          "required": [
+            "registration_id"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}

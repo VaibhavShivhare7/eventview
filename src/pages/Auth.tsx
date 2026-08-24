@@ -52,7 +52,7 @@ const Auth = () => {
       password: signupPassword,
       options: {
         data: { full_name: signupName },
-        emailRedirectTo: window.location.origin,
+        emailRedirectTo: `${window.location.origin}${redirectTo.startsWith("/") && !redirectTo.startsWith("//") ? redirectTo : "/dashboard"}`,
       },
     });
     setLoading(false);
