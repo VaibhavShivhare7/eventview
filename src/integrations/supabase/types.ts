@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      analytics_events: {
+        Row: {
+          created_at: string
+          event_name: string
+          id: string
+          metadata: Json
+          path: string
+          referrer: string | null
+          session_id: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          event_name: string
+          id?: string
+          metadata?: Json
+          path: string
+          referrer?: string | null
+          session_id?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          event_name?: string
+          id?: string
+          metadata?: Json
+          path?: string
+          referrer?: string | null
+          session_id?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       cohost_invitations: {
         Row: {
           accepted_at: string | null
@@ -697,6 +730,60 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      seo_settings: {
+        Row: {
+          id: boolean
+          site_url: string | null
+          updated_at: string
+        }
+        Insert: {
+          id?: boolean
+          site_url?: string | null
+          updated_at?: string
+        }
+        Update: {
+          id?: boolean
+          site_url?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      seo_snapshots: {
+        Row: {
+          by_date: Json
+          fetched_at: string
+          id: string
+          range_end: string
+          range_start: string
+          site_url: string
+          top_pages: Json
+          top_queries: Json
+          totals: Json
+        }
+        Insert: {
+          by_date?: Json
+          fetched_at?: string
+          id?: string
+          range_end: string
+          range_start: string
+          site_url: string
+          top_pages?: Json
+          top_queries?: Json
+          totals?: Json
+        }
+        Update: {
+          by_date?: Json
+          fetched_at?: string
+          id?: string
+          range_end?: string
+          range_start?: string
+          site_url?: string
+          top_pages?: Json
+          top_queries?: Json
+          totals?: Json
+        }
+        Relationships: []
       }
       suppressed_emails: {
         Row: {
