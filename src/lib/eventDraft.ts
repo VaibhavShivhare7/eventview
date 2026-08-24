@@ -1,5 +1,5 @@
-export const NEW_EVENT_DRAFT_KEY = "eventspark:create-event-draft:new";
-export const EVENT_WORKSPACE_LAST_PATH_KEY = "eventspark:event-workspace:last-path";
+export const NEW_EVENT_DRAFT_KEY = "event view:create-event-draft:new";
+export const EVENT_WORKSPACE_LAST_PATH_KEY = "event view:event-workspace:last-path";
 
 const EVENT_WORKSPACE_FALLBACK_PATH = "/dashboard/events";
 const CREATE_EVENT_PATH = "/dashboard/events/create";

@@ -45,7 +45,7 @@ export const template = {
   component: EventReminder,
   subject: (d: Record<string, any>) => `${d?.whenPhrase || 'Reminder'}: ${d?.eventName || 'your event'}`,
   displayName: 'Event reminder',
-  previewData: { attendeeName: 'Jamie', eventName: 'Founders Brunch', eventDateLine: 'Tomorrow · 10:00 AM EST', locationLine: 'Brooklyn, NY', whenPhrase: 'Tomorrow', organizerName: 'eventspark' },
+  previewData: { attendeeName: 'Jamie', eventName: 'Founders Brunch', eventDateLine: 'Tomorrow · 10:00 AM EST', locationLine: 'Brooklyn, NY', whenPhrase: 'Tomorrow', organizerName: 'event view' },
 } satisfies TemplateEntry
 
 const main = { backgroundColor: '#ffffff', fontFamily: 'Inter, Arial, sans-serif' }

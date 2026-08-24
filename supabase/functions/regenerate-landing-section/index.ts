@@ -12,7 +12,7 @@ const corsHeaders = {
 const SCHEMAS: Record<string, { description: string; schema: any }> = {
   hero: {
     description:
-      "Marketing hero for 'eventspark', a free white-label tool for building event registration pages. Lowercase brand name. Energetic, confident, founder-friendly.",
+      "Marketing hero for 'event view', a free white-label tool for building event registration pages. Lowercase brand name. Energetic, confident, founder-friendly.",
     schema: {
       type: "object",
       properties: {
@@ -174,7 +174,7 @@ Deno.serve(async (req) => {
       .eq("section_key", sectionKey)
       .maybeSingle();
 
-    const systemPrompt = `You write marketing copy for "eventspark", a free, white-label SaaS that helps anyone build branded event registration pages, track attendees, and grow their community.
+    const systemPrompt = `You write marketing copy for "event view", a free, white-label SaaS that helps anyone build branded event registration pages, track attendees, and grow their community.
 
 Brand voice: confident, warm, clear, never corporate, never hyped. Lowercase brand name. Use plain language. Avoid emojis and exclamation marks.
 

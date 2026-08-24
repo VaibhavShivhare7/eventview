@@ -44,11 +44,11 @@ Deno.serve(async (req) => {
   const ics = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//eventspark//EN',
+    'PRODID:-//event view//EN',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
     'BEGIN:VEVENT',
-    `UID:${event.id}@eventspark`,
+    `UID:${event.id}@event view`,
     `DTSTAMP:${toIcsDate(now)}`,
     `DTSTART:${toIcsDate(start)}`,
     `DTEND:${toIcsDate(end)}`,

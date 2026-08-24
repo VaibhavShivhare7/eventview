@@ -356,7 +356,7 @@ const EventDetail = () => {
                   </div>
                   <div className="space-y-1.5">
                     <Label className="text-xs">Sign-off (optional)</Label>
-                    <Input key={`sig-${emailConfig?.email_signature ?? ""}`} defaultValue={emailConfig?.email_signature || ""} onBlur={e => handleEmailConfigUpdate({ email_signature: e.target.value || null })} placeholder="— The eventspark team" className="rounded-full" />
+                    <Input key={`sig-${emailConfig?.email_signature ?? ""}`} defaultValue={emailConfig?.email_signature || ""} onBlur={e => handleEmailConfigUpdate({ email_signature: e.target.value || null })} placeholder="— The event view team" className="rounded-full" />
                   </div>
                 </div>
               </div>

@@ -45,7 +45,7 @@ export const template = {
   component: WaitlistPromoted,
   subject: (d: Record<string, any>) => `You're confirmed for ${d?.eventName || 'the event'}`,
   displayName: 'Waitlist promoted',
-  previewData: { attendeeName: 'Jamie', eventName: 'Founders Brunch', eventDateLine: 'Sat, Apr 18 · 10:00 AM', locationLine: 'Brooklyn, NY', organizerName: 'eventspark' },
+  previewData: { attendeeName: 'Jamie', eventName: 'Founders Brunch', eventDateLine: 'Sat, Apr 18 · 10:00 AM', locationLine: 'Brooklyn, NY', organizerName: 'event view' },
 } satisfies TemplateEntry
 
 const main = { backgroundColor: '#ffffff', fontFamily: 'Inter, Arial, sans-serif' }
