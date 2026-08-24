@@ -45,29 +45,29 @@ export interface CtaContent {
 
 export const LANDING_DEFAULTS = {
   hero: {
-    badge: "For organizers everywhere",
-    headline_prefix: "The event platform where ideas become",
-    rotating_words: ["events.", "experiences.", "communities.", "connections."],
+    badge: "Event registration software for organizers",
+    headline_prefix: "Event registration software for",
+    rotating_words: ["conferences.", "workshops.", "meetups.", "summits."],
     subhead:
-      "Whatever your event — from workshops to conferences — build branded registration pages, track attendees, and grow your community. No code required.",
+      "Create an online event registration page in minutes, sell or track tickets, manage attendee check-in, and see live signup analytics. No code required.",
     cta: "Get started",
   } as HeroContent,
   popular_events: {
     title_line_1: "Popular events",
     title_line_2: "on event view",
-    subhead: "A glimpse at the experiences our community is hosting right now.",
+    subhead: "A glimpse at the events taking registrations on event view right now.",
     cta_label: "Browse all events",
   } as PopularEventsContent,
   features: {
     eyebrow: "Built for organizers",
-    title_line_1: "Everything you need to",
-    title_line_2: "run amazing events.",
-    subhead: "From page creation to post-event analytics, event view has you covered.",
+    title_line_1: "Everything you need for",
+    title_line_2: "online event registration.",
+    subhead: "From registration pages to attendee management and post-event analytics, event view is complete event registration software.",
     items: [
-      { tag: "Pages", title: "Pages in minutes", description: "Beautiful registration pages that make your event shine — no design skills needed." },
-      { tag: "Insights", title: "Understand everything", description: "Live dashboards that show where attendees come from, drop off, and convert." },
+      { tag: "Pages", title: "Registration pages in minutes", description: "Build a branded event registration page and share one registration link — no design skills needed." },
+      { tag: "Insights", title: "Live registration analytics", description: "Dashboards that show where registrations come from, where attendees drop off, and what converts." },
       { tag: "Integrations", title: "Integrate with everything", description: "Connect Zoom, HubSpot, Mailchimp, and 20+ tools in a few clicks." },
-      { tag: "Audience", title: "One hub for everyone", description: "Manage, message, and track every attendee from a single beautiful dashboard." },
+      { tag: "Audience", title: "Attendee management hub", description: "Manage, message, and check in every attendee from a single event management dashboard." },
     ],
   } as FeaturesContent,
   testimonials: {
@@ -81,9 +81,9 @@ export const LANDING_DEFAULTS = {
     ],
   } as TestimonialsContent,
   cta: {
-    title_line_1: "Ready to spark",
-    title_line_2: "your next event?",
-    subhead: "Join thousands of organizers who use event view to build better events.",
+    title_line_1: "Start taking event",
+    title_line_2: "registrations today.",
+    subhead: "Join thousands of organizers who use event view as their event registration and ticketing software.",
     cta_label: "Get started for free",
   } as CtaContent,
 };
